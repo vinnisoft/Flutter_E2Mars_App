@@ -10,6 +10,7 @@ const String verifyOtpEndPoint = "api/verify-otp";
 const String resetPasswordEndPoint = "api/update-password";
 const String myProfileEndPoint = "api/profile";
 const String editProfileEndPoint = "api/edit-profile";
+const String checkEmail = "api/check-email";
 
 const String deleteAccountEndPoint = "";
 const String logoutEndPoint = "";

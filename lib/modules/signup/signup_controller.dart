@@ -1,4 +1,5 @@
 import 'package:e2mars/export.dart';
+import 'package:e2mars/utils/const.dart';
 
 class SignupController extends GetxController {
   final APIRepository _repository = Get.find<APIRepository>();
@@ -18,6 +19,9 @@ class SignupController extends GetxController {
   TextEditingController addressTextController = TextEditingController();
   FocusNode addressFocusNode = FocusNode();
 
+  TextEditingController dateOfBirth = TextEditingController();
+  FocusNode dateOfBirthFocusNode = FocusNode();
+
   TextEditingController passwordTextController = TextEditingController();
   FocusNode passwordFocusNode = FocusNode();
 
@@ -35,6 +39,19 @@ class SignupController extends GetxController {
   RxInt activeStep = 0.obs;
 
   Rx<MessageResponseModel> messageResponseModel = MessageResponseModel().obs;
+
+  @override
+  void onInit() {
+    // if(kDebugMode) {
+    //   firstNameTextController.text = "pankaj";
+    //   lastNameTextController.text = "Bedwal";
+    //   emailTextController.text = "abc@gmail.com";
+    //   phoneNumberTextController.text = "1234567890";
+    //   passwordTextController.text = "1234567890";
+    //   confirmPasswordTextController.text = "1234567890";
+    // }
+    super.onInit();
+  }
 
   Rx<Country> selectedCountry = const Country(
       name: 'United States',
@@ -64,6 +81,43 @@ class SignupController extends GetxController {
         Get.back();
         showToast(message: messageResponseModel.value.message.toString());
       }
+    }).onError((error, stackTrace) {
+      signUpLoading.value = false;
+      showToast(message: error.toString());
+    });
+  }
+
+
+
+
+  checkEmailApi() {
+    signUpLoading.value = true;
+    Map<String, dynamic> requestModel = {};
+    requestModel['email'] = emailTextController.text.trim();
+    _repository.checkEmailApiCall(dataBody: requestModel).then((value) async {
+      if (value != null) {
+        signUpLoading.value = false;
+        messageResponseModel.value = value;
+        if(messageResponseModel.value.success??false){
+
+          Const.firstName=firstNameTextController.text.trim();
+          Const.lastName=lastNameTextController.text.trim();
+          Const.email=emailTextController.text.trim();
+          Const.phoneNumber=phoneNumberTextController.text.trim();
+          Const.password=passwordTextController.text.trim();
+          Const.confirmPassword=confirmPasswordTextController.text.trim();
+          Const.dateOfBirth=dateOfBirth.text.trim();
+          Const.phoneCode=selectedCountry.value.code;
+          Get.toNamed(AppRoutes.routeUploadDocuments);
+        }
+        else{
+          signUpLoading.value = false;
+          showToast(message: "Email already exists");
+        }
+      }
+
+      signUpLoading.value=false;
+
     }).onError((error, stackTrace) {
       signUpLoading.value = false;
       showToast(message: error.toString());

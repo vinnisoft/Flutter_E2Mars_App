@@ -81,6 +81,7 @@ Map<String, String> en_US = {
   keyLastName : 'Last name' ,
   keyPhoneNumber : 'Phone number' ,
   keyAddress : 'Address' ,
+  keyDateOfBirth:"Date Of Birth",
   keyConfirmPassword : 'Confirm password' ,
   keyReferralCode : 'Referral Code' ,
   keyAlreadyHaveAccount : 'Already have an account? ' ,

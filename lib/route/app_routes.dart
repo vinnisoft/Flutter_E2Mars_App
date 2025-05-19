@@ -16,5 +16,9 @@ class AppRoutes {
 
   static const String routeE2Refer = '/route_e2refer';
 
+  static const String routeUploadDocuments = '/upload_documents';
+  static const String routeVehicleFormInfo = '/vehicle_info_form';
+  static const String routeBankInfoForm='/bank_info_form';
+
 
 }

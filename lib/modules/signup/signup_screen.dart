@@ -1,6 +1,8 @@
 import 'package:e2mars/export.dart';
 import 'package:easy_stepper/easy_stepper.dart';
 
+import '../../export.dart' as CommonAlertDialog;
+
 class SignupScreen extends GetView<SignupController> {
   SignupScreen({super.key});
 
@@ -9,34 +11,39 @@ class SignupScreen extends GetView<SignupController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(),
+        appBar: CustomAppBar(
+          appBarTitle: Text(keySignup.tr,style:textStyleTitleLarge().copyWith(
+              color: AppColors.primaryTextColor,
+              fontWeight: FontWeight.w600)),
+
+        ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                keyCreateAccount.tr,
-                style: textStyleHeadlineLarge(),
-              ).paddingSymmetric(horizontal: 22.w),
-              Text(
-                keyCreateAccountDesc.tr,
-                style: textStyleTitleSmall(),
-              ).paddingOnly(top: 4.h, bottom: 5.h, left: 22.w, right: 22.w),
+              // Text(
+              //   keyCreateAccount.tr,
+              //   style: textStyleHeadlineLarge(),
+              // ).paddingSymmetric(horizontal: 22.w),
+              // Text(
+              //   keyCreateAccountDesc.tr,
+              //   style: textStyleTitleSmall(),
+              // ).paddingOnly(top: 4.h, bottom: 5.h, left: 22.w, right: 22.w),
               _easyStepper(),
               Text(
                 keyPersonalInfo.tr,
                 style: textStyleHeadlineMedium(),
               ).paddingSymmetric(horizontal: 22.w),
               _step1Form(),
+              Obx(()=>controller.signUpLoading.value?Center(child: CircularProgressIndicator(color: AppColors.secondaryAppColor)):_signUpButton()),
               /*_form(),
-              _sendOtpButton(),
-              _alreadyHaveAccount()*/
+              _sendOtpButton(),*/
+              _alreadyHaveAccount()
             ],
           ),
         ));
   }
-
   _easyStepper() => EasyStepper(
         activeStep: controller.activeStep.value,
         activeStepTextColor: Colors.black,
@@ -178,13 +185,15 @@ class SignupScreen extends GetView<SignupController> {
               controller.selectedCountry.refresh();
             },
           ).paddingSymmetric(vertical: 6.h),
-          TextFieldWidget(
-            textController: controller.addressTextController,
-            focusNode: controller.addressFocusNode,
-            label: keyAddress.tr,
-            validate: (value) => FieldChecker.fieldChecker(
-                value: value ?? '', message: keyAddress.tr),
-          ).paddingSymmetric(vertical: 6.h),
+
+
+          // TextFieldWidget(
+          //   textController: controller.dateOfBirth,
+          //   focusNode: controller.dateOfBirthFocusNode,
+          //   label: keyDateOfBirth.tr,
+          //   validate: (value) => FieldChecker.fieldChecker(
+          //       value: value ?? '', message: keyDateOfBirth.tr),
+          // ).paddingSymmetric(vertical: 6.h),
           Obx(
             () => TextFieldWidget(
               textController: controller.passwordTextController,
@@ -235,7 +244,7 @@ class SignupScreen extends GetView<SignupController> {
             label: keyReferralCode.tr,
           ).paddingSymmetric(vertical: 6.h) :  SizedBox(),
         ],
-      )).paddingSymmetric(vertical: 10.h);
+      )).paddingSymmetric(vertical: 10.h, horizontal: 22.w);
 
   _sendOtpButton() => CustomButtonWidget(
         onPressed: () {
@@ -267,4 +276,26 @@ class SignupScreen extends GetView<SignupController> {
               ]),
         ).paddingSymmetric(vertical: 30.h),
       );
+
+
+
+  _signUpButton() => CustomButtonWidget(
+    onPressed: () {
+
+
+      if (_signupFormKey.currentState!.validate()) {
+        if(currentRole=="rider"){
+          controller.signUpApi();
+        }
+         else{
+          controller.checkEmailApi();
+        }
+      }
+    },
+    // isLoading: controller.loginLoading,
+    buttonText: keyNext.tr,
+  ).paddingSymmetric(vertical: 10.h,horizontal: 22.w);
+
+
+
 }

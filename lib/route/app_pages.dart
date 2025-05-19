@@ -93,5 +93,32 @@ class AppPages {
       page: () => E2referScreen(),
       binding: E2ReferBinding(),
     ),
+
+    GetPage(
+      name: AppRoutes.routeUploadDocuments,
+      transition: Transition.rightToLeft,
+      curve: Curves.ease,
+      transitionDuration: const Duration(milliseconds: _transitionDuration),
+      page: () => UploadDocumentsScreen(),
+      binding: UploadDocumentsBinding(),
+    ),
+
+    GetPage(
+      name: AppRoutes.routeVehicleFormInfo,
+      transition: Transition.rightToLeft,
+      curve: Curves.ease,
+      transitionDuration: const Duration(milliseconds: _transitionDuration),
+      page: () => VehicleInfoFormScreen(),
+      binding: VehicleInfoBinding(),
+    ),
+
+    GetPage(
+      name: AppRoutes.routeBankInfoForm,
+      transition: Transition.rightToLeft,
+      curve: Curves.ease,
+      transitionDuration: const Duration(milliseconds: _transitionDuration),
+      page: () => BankInfoFromScreen(),
+      binding: BankInfoFormBinding(),
+    ),
   ];
 }

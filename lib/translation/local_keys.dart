@@ -76,6 +76,7 @@ const String keyFirstName = 'keyFirstName';
 const String keyLastName = 'keyLastName';
 const String keyPhoneNumber = 'keyPhoneNUmber';
 const String keyAddress = 'keyAddress';
+const String keyDateOfBirth = 'keyDateOfBirth';
 const String keyConfirmPassword = 'keyConfirmPassword';
 const String keyReferralCode = 'keyReferralCode';
 const String keyAlreadyHaveAccount = 'keyAlreadyHaveAccount';
@@ -144,5 +145,7 @@ const String keyUploadImage = 'keyUploadImage';
 const String keyBankAccountNumber = 'keyBankAccountNumber';
 const String keyIFSCSWIFTCode = 'keyIFSCSWIFTCode';
 const String keyAccountHolderName = 'keyAccountHolderName';
+
+
 
 

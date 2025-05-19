@@ -45,5 +45,6 @@ class Assets {
   static const String imagesRiderOnBoarding1 = 'assets/images/rider_on_boarding1.png';
   static const String imagesRiderOnBoarding2 = 'assets/images/rider_on_boarding2.png';
   static const String imagesRiderOnBoarding3 = 'assets/images/rider_on_boarding3.png';
+  static const String icCongratulation = 'assets/images/img_congratulation.svg';
 
 }

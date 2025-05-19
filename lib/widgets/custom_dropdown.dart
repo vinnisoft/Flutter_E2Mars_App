@@ -50,7 +50,7 @@ class CustomDropdown<T> extends StatelessWidget {
       dropdownStyleData: DropdownStyleData(
         maxHeight: 200.h,
         decoration: const BoxDecoration(
-          color: AppColors.secondaryAppColor,
+          color: Colors.white,
         ),
       ),
       hint: Text(
@@ -68,7 +68,7 @@ class CustomDropdown<T> extends StatelessWidget {
               value: value,
               child: Text(
                 value.toString(),
-                style: textStyleBodyMedium(),
+                style: textStyleBodyMedium().copyWith(fontSize:14.sp,fontWeight: FontWeight.w500,color: AppColors.primaryTextColor),
                 maxLines: 2,
               ),
             );
@@ -99,21 +99,21 @@ class CustomDropdown<T> extends StatelessWidget {
         border: decoration ??
             OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.primaryTextColor,
+                color: AppColors.secondaryTextColor,
                 width: 1.w,
               ),
               borderRadius: BorderRadius.circular(radius ?? 20.r)),
         enabledBorder: decoration ??
             OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.primaryTextColor,
+                color: AppColors.secondaryTextColor,
                 width: 1.w,
               ),
               borderRadius: BorderRadius.circular(radius ?? 20.r)),
         disabledBorder: decoration ??
             OutlineInputBorder(
               borderSide: BorderSide(
-                color: AppColors.primaryTextColor,
+                color: AppColors.secondaryTextColor,
                 width: 1.w,
               ),
               borderRadius: BorderRadius.circular(radius ?? 20.r)),

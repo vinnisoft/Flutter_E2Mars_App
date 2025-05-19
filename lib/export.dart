@@ -27,6 +27,7 @@ export 'package:intl/intl.dart' hide TextDirection;
 export 'package:flutter_easyloading/flutter_easyloading.dart';
 export 'package:flutter/gestures.dart';
 export 'package:share_plus/share_plus.dart';
+export 'package:dotted_border/dotted_border.dart';
 
 //config
 export 'package:e2mars/config/device_info.dart';
@@ -95,6 +96,9 @@ export 'package:e2mars/modules/role_selection/role_selection_controller.dart';
 export 'package:e2mars/modules/signup/signup_controller.dart';
 export 'package:e2mars/modules/driver/home/driver_home_controller.dart';
 export 'package:e2mars/modules/e2refer/e2refer_controller.dart';
+export 'package:e2mars/modules/upload_documents/unload_documents_controller.dart';
+export 'package:e2mars/modules/vehicle_info_form/vehicle_info_form_controller.dart';
+export 'package:e2mars/modules/bank_info_form/bank_info_form_controller.dart';
 
 //bindings
 export 'package:e2mars/initial_binding/initial_binding.dart';
@@ -108,6 +112,9 @@ export 'package:e2mars/modules/dashboard/dashboard_binding.dart';
 export 'package:e2mars/modules/role_selection/role_selection_binding.dart';
 export 'package:e2mars/modules/signup/signup_binding.dart';
 export 'package:e2mars/modules/e2refer/e2refer_binding.dart';
+export 'package:e2mars/modules/upload_documents/upload_documents_binding.dart';
+export 'package:e2mars/modules/vehicle_info_form/vehicle_info_binding.dart';
+export 'package:e2mars/modules/bank_info_form/bank_info_form_binding.dart';
 
 //screen
 export 'package:e2mars/modules/splash/splash_screen.dart';
@@ -124,6 +131,9 @@ export 'package:e2mars/modules/signup/signup_screen.dart';
 export 'package:e2mars/modules/driver/home/driver_home_screen.dart';
 export 'package:e2mars/modules/e2refer/e2refer_screen.dart';
 export 'package:e2mars/modules/rider/profile/profile_screen.dart';
+export 'package:e2mars/modules/upload_documents/upload_documents_screen.dart';
+export 'package:e2mars/modules/vehicle_info_form/vehicle_info_form_screen.dart';
+export  'package:e2mars/modules/bank_info_form/bank_info_from_screen.dart';
 
 //widgets
 export 'package:e2mars/widgets/custom_phone_text_field.dart';
