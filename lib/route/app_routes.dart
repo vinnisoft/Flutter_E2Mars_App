@@ -12,13 +12,7 @@ class AppRoutes {
   static const String routeResetPassword = '/route_reset_password';
   static const String routePasswordResetSuccessful = '/route_password_reset_successful';
 
-  static const String routeDashboard = '/route_dashboard';
 
-  static const String routeE2Refer = '/route_e2refer';
-
-  static const String routeUploadDocuments = '/upload_documents';
-  static const String routeVehicleFormInfo = '/vehicle_info_form';
-  static const String routeBankInfoForm='/bank_info_form';
 
 
 }
